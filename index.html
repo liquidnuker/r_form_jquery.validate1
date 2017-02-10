@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="dist/index.bundle.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-sm-4">48</div>
+      <div class="col-sm-8">
+        <form class="form1" id="form1" method="get" action="">
+          <!--begin custom select-->
+          <label for="select1">custom-select:</label>
+          <select class="custom-select" id="select1" name="select1">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option value="third option">Option 3</option>
+          </select>
+          <label class="bs4_custom-control bs4_custom-radio">
+            <input id="radioStacked1" name="radio-stacked" type="radio" class="bs4_custom-control-input">
+            <span class="bs4_custom-control-indicator"></span>
+            <span class="bs4_custom-control-description">Toggle this custom radio</span>
+          </label>
+          <label class="bs4_custom-control bs4_custom-radio">
+            <input id="radioStacked2" name="radio-stacked" type="radio" class="bs4_custom-control-input">
+            <span class="bs4_custom-control-indicator"></span>
+            <span class="bs4_custom-control-description">Or toggle this other custom radio</span>
+          </label>
+          <!--end custom select-->
+          <!--begin custom checkbox-->
+          <label class="bs4_custom-control bs4_custom-checkbox">
+            <input type="checkbox" class="bs4_custom-control-input">
+            <span class="bs4_custom-control-indicator"></span>
+            <span class="bs4_custom-control-description">Check this custom checkbox</span>
+          </label>
+          <label class="bs4_custom-control bs4_custom-checkbox">
+            <input type="checkbox" class="bs4_custom-control-input">
+            <span class="bs4_custom-control-indicator"></span>
+            <span class="bs4_custom-control-description">Check this custom checkbox2</span>
+          </label>
+          <!--end custom checkbox-->
+          <!--begin input type="text"-->
+          <label for="username">Username</label>
+          <span class="username--error"></span>
+          <input id="username" name="username" type="text" data-error=".username--error">
+          <!--end input type="text"-->
+          <!--begin input password-->
+          <label for="password">Password</label>
+          <span class="password--error"></span>
+          <input id="password" name="password" type="password" data-error=".password--error">
+          <!--end input password-->
+          
+          <!--begin confirm password-->
+          <label for="confirm_password">Confirm password</label>
+          <span class="confirm_password--error"></span>
+          <input id="confirm_password" name="confirm_password" type="password" data-error=".confirm_password--error">
+          <!--end confirm password-->
+          <!--begin email-->
+          <label for="email">Email</label>
+          <span class="email--error"></span>
+          <input id="email" name="email" type="email" data-error=".email--error">
+          <!--end email-->
+          <!--begin agree-->
+          <span class="agree--error"></span>
+          <label class="bs4_custom-control bs4_custom-checkbox">
+            <label for="agree" class="bs4_custom-control-description">Please agree to our policy</label>
+            <input type="checkbox" class="bs4_custom-control-input checkbox" id="agree" name="agree" data-error=".agree--error">
+            <span class="bs4_custom-control-indicator"></span>
+          </label>
+          <!--end agree-->
+          <!--begin newsletter-->
+          <!-- <label for="newsletter">I'd like to receive the newsletter</label>
+          <input type="checkbox" class="checkbox" id="newsletter" name="newsletter"> -->
+          <label class="bs4_custom-control bs4_custom-checkbox">
+            <label for="newsletter" class="bs4_custom-control-description">I'd like to receive the newsletter</label>
+            <input type="checkbox" class="bs4_custom-control-input checkbox" id="newsletter" name="newsletter">
+            <span class="bs4_custom-control-indicator"></span>
+          </label>
+          <fieldset class="newsletter_topics" id="newsletter_topics">
+            <legend>select at least two: - note: would be hidden when newsletter isn't selected, but is visible here for the demo</legend>
+            <!--marketflash-->
+            <label class="bs4_custom-control bs4_custom-checkbox">
+              <label for="topic_marketflash" class="bs4_custom-control-description">Marketflash</label>
+              <input type="checkbox" class="bs4_custom-control-input checkbox" id="topic_marketflash" value="marketflash" name="topic" data-error=".topic--error">
+              <span class="bs4_custom-control-indicator"></span>
+            </label>
+            <!--end marketflash-->
+            <!--latest fuzz-->
+            <label class="bs4_custom-control bs4_custom-checkbox">
+              <label for="topic_fuzz" class="bs4_custom-control-description">Latest Fuzz</label>
+              <input type="checkbox" class="bs4_custom-control-input checkbox" id="topic_fuzz" value="fuzz" name="topic" data-error=".topic--error">
+              <span class="bs4_custom-control-indicator"></span>
+            </label>
+            <!--end latest fuzz-->
+            <!--mailing list digester-->
+            <label class="bs4_custom-control bs4_custom-checkbox">
+              <label for="topic_digester" class="bs4_custom-control-description">Mailing list digester</label>
+              <input type="checkbox" class="bs4_custom-control-input checkbox" id="topic_digester" value="digester" name="topic" data-error=".topic--error">
+              <span class="bs4_custom-control-indicator"></span>
+            </label>
+            <!--end mailing list digester-->
+            <span class="topic--error"></span>
+          </fieldset>
+          <!--end newsletter-->
+          <!--begin textarea-->
+          <span class="message--error"></span>
+          <label for="message">Write your message</label>
+          <textarea id="message" name="message2" data-error=".message--error"></textarea>
+          <!--end textarea-->
+          <br>
+          <br>
+          <input type="file" id="file" class="">
+        </label>
+        <br>
+        <input class="submit" type="submit" value="Submit">
+      </p>
+    </form>
+  </div>
+</div>
+<script src="dist/index.bundle.js"></script>
+</body>
+</html>

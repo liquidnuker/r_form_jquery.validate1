@@ -1,0 +1,16 @@
+/* components/_custom_form-elements.scss
+=================================================*/
+
+@mixin input_text--custom {
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  outline: 1px solid #000;
+}
+
+@mixin input_text_focus--custom {
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  outline: 1px solid green;
+  background-color: #999;
+}
+

@@ -1,0 +1,71 @@
+/* pages/_contact.scss
+   =================================================*/
+@include bs4_custom-select;
+@include bs4_custom_checkbox_radios;
+
+// validator-specific styles
+// ==================================================/
+.form1 {
+    text-align: center;
+    position: relative;
+    label {
+      display: block;
+      text-align: left;
+    }
+
+    label.error {
+    position: relative;
+    width: auto;
+    display: block;
+    text-align: left;
+  }
+}
+
+.newsletter_topics {
+  label {
+    display: block;
+  }
+  label.error {
+    display: none;
+  }
+}
+
+.username--error,
+.password--error,
+.confirm_password--error,
+.email--error,
+.agree--error,
+.topic--error,
+.message--error {
+  border: 1px solid green;
+  display: block;
+}
+
+// form-specific styles
+// ==================================================/
+.form1 input[type=text],
+.form1 input[type=password],
+.form1 input[type=email],
+.form1 textarea {
+  @include input_text--custom;
+  display: block;
+  width: 100%;
+
+  &:focus {
+    @include input_text_focus--custom;
+  }
+}
+
+// mobile portrait (320x480) 
+@include mq($from: mobile) {
+  
+}
+
+// *small tablet portrait (600x800)
+@include mq($from: smallTabletPortrait) {
+  .form1 {
+    margin-left: auto;
+    margin-right: auto;
+    // max-width: 80%;
+  }
+}

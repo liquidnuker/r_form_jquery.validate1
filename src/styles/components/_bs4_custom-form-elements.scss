@@ -1,0 +1,307 @@
+// bs4 custom select
+// ==================================================/
+@mixin bs4_custom-select {
+  $custom-select-padding-x: .75rem  !default;
+  $custom-select-padding-y: .375rem !default;
+
+  $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") !default;
+$custom-select-indicator-padding: 1rem !default; // Extra padding to account for the presence of the background-image based indicator
+
+$custom-select-color: #666;
+$custom-select-bg: #fff !default;
+
+$custom-select-disabled-color: #ccc;
+$custom-select-disabled-bg:   red;
+
+.custom-select {
+  display: inline-block;
+  max-width: 100%;
+  width: 100%; 
+  color: $custom-select-color;
+  vertical-align: middle;
+  background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
+  background-image: none \9;
+background-size: 8px 10px; // custom select indicator pixels because image dimensions
+border: 1px solid #000;
+border-radius: 4px;
+// @include border-radius($custom-select-border-radius);
+// Use vendor prefixes as `appearance` isn't part of the CSS spec.
+-moz-appearance: none;
+-webkit-appearance: none;
+
+&:focus {
+  border-color: #51a7e8;
+  outline: none;
+// box-shadow: inset...
+
+&::-ms-value {
+// For visual consistency with other platforms/browsers,
+// supress the default white text on blue background highlight given to
+// the selected option text when the (still closed) <select> receives focus
+// in IE and (under certain conditions) Edge.
+// See https://github.com/twbs/bootstrap/issues/19398.
+color: green;
+background-color: brown;
+}
+}
+
+&:disabled {
+  color: $custom-select-disabled-color;
+  cursor: disabled;
+  background-color: $custom-select-disabled-bg;
+}
+
+// Hides the default caret in IE11
+&::-ms-expand {
+  opacity: 0;
+}
+}
+}
+
+// bs4 checkbox + radios
+// ==================================================/
+@mixin bs4_custom_checkbox_radios {
+  $custom-control-gutter:   1.5rem !default;
+  $custom-control-spacer-x: 1rem !default;
+  $custom-control-spacer-y: .25rem !default;
+
+  $custom-control-indicator-size: 1rem !default;
+  $custom-control-indicator-bg: #ddd !default;
+  $custom-control-indicator-bg-size: 50% 50% !default;  
+
+  $custom-control-disabled-cursor: disabled;
+  $custom-control-disabled-indicator-bg: #eee !default;
+  $custom-control-disabled-description-color: #767676 !default;
+
+  $custom-control-checked-indicator-color: green !default;
+  $custom-control-checked-indicator-bg: #0074d9 !default;  
+
+  $custom-control-active-indicator-color: #fff !default;
+  $custom-control-active-indicator-bg: #84c6ff !default;  
+
+  $custom-checkbox-radius: 2px;
+  $custom-checkbox-checked-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") !default;
+  $custom-checkbox-indeterminate-bg: #0074d9 !default;
+  $custom-checkbox-indeterminate-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='%23fff' d='M0 2h4'/%3E%3C/svg%3E") !default;
+  $custom-checkbox-indeterminate-box-shadow: none !default;
+
+  $custom-radio-radius: 50% !default;
+  $custom-radio-checked-icon: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E") !default;
+
+  .bs4_custom-control {
+    position: relative;
+    display: inline;
+    padding-left: $custom-control-gutter; // padding of label
+    cursor: pointer;
+
+    + .custom-control {
+      // margin-left: $custom-control-spacer-x;
+    }
+  }
+
+  .bs4_custom-control-input {
+    position: absolute;
+z-index: -1; // Put the input behind the label so it doesn't overlay text
+opacity: 0;
+
+&:checked ~ .bs4_custom-control-indicator {
+  color: $custom-control-checked-indicator-color;
+  background-color: $custom-control-checked-indicator-bg;
+  // box-shadow: $custom-control-checked-indicator-box-shadow;
+}
+
+&:focus ~ .bs4_custom-control-indicator {
+// the mixin is not used here to make sure there is feedback
+// box-shadow: $custom-control-focus-indicator-box-shadow;
+}
+
+&:active ~ .bs4_custom-control-indicator {
+  color: $custom-control-active-indicator-color;
+  background-color: $custom-control-active-indicator-bg;
+  // box-shadow: $custom-control-active-indicator-box-shadow;
+}
+
+&:disabled {
+  ~ .bs4_custom-control-indicator {
+    cursor: $custom-control-disabled-cursor;
+    background-color: $custom-control-disabled-indicator-bg;
+  }
+
+  ~ .bs4_custom-control-description {
+    color: $custom-control-disabled-description-color;
+    cursor: $custom-control-disabled-cursor;
+  }
+}
+}
+
+// Custom indicator
+// Generates a shadow element to create our makeshift checkbox/radio background.
+
+.bs4_custom-control-indicator {
+  position: absolute;
+  top: .0625rem;
+  left: 0;
+  display: block;
+  width: $custom-control-indicator-size;
+  height: $custom-control-indicator-size;
+  pointer-events: none;
+  user-select: none;
+  background-color: $custom-control-indicator-bg;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: $custom-control-indicator-bg-size;
+  // box-shadow: inset...
+}
+
+// Checkboxes
+// Tweak just a few things for checkboxes.
+
+.bs4_custom-checkbox {
+  margin-left: 0;
+
+  .bs4_custom-control-indicator {
+    border: 1px solid #000;
+    border-radius: $custom-checkbox-radius;
+  }
+
+  .bs4_custom-control-input:checked ~ .bs4_custom-control-indicator {
+    background-image: $custom-checkbox-checked-icon;
+  }
+
+  .bs4_custom-control-input:indeterminate ~ .bs4_custom-control-indicator {
+    background-color: $custom-checkbox-indeterminate-bg;
+    background-image: $custom-checkbox-indeterminate-icon;
+    // box-shadow: $custom-checkbox-indeterminate-box-shadow;
+  }
+}
+
+// Radios
+// Tweak just a few things for radios.
+
+.bs4_custom-radio {
+  margin-left: 0;
+
+  .bs4_custom-control-indicator {
+    border: 1px solid #000;
+    border-radius: $custom-radio-radius;
+  }
+
+  .bs4_custom-control-input:checked ~ .bs4_custom-control-indicator {
+    background-image: $custom-radio-checked-icon;
+  }
+}
+
+
+// Layout options
+// By default radios and checkboxes are `inline-block` with no additional spacing
+// set. Use these optional classes to tweak the layout.
+
+.custom-controls-stacked {
+  .custom-control {
+    display: inline;
+
+    &::after {
+      display: block;
+      margin-bottom: $custom-control-spacer-y;
+      content: "";
+    }
+
+    + .custom-control {
+      margin-left: 0;
+    }
+  }
+}
+}
+
+// bs4 file-browser
+// ==================================================/
+@mixin bs4-file-browser {
+  $custom-file-height:           2.5rem !default;
+  $custom-file-width:            14rem !default;
+  
+  $custom-file-padding-x:     .5rem !default;
+  $custom-file-padding-y:     1rem !default;
+  $custom-file-line-height:   1.5 !default;
+  $custom-file-color:         #555 !default;
+  $custom-file-bg:            #fff !default;
+  $custom-file-border-width:  1px;
+  $custom-file-border-color:  #ddd !default;
+  $custom-file-border-radius: 4px !default;
+  $custom-file-box-shadow:    inset 0 .2rem .4rem rgba(0,0,0,.05) !default;
+  $custom-file-button-color:  $custom-file-color !default;
+  $custom-file-button-bg:     #eee !default;
+  $custom-file-text: (
+    placeholder: (
+      en: "Choose file..."
+      ),
+    button-label: (
+      en: "Browse"
+      )
+    ) !default;
+
+  .custom-file {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    height: $custom-file-height;
+    cursor: pointer;
+  }
+
+  .custom-file-input {
+    min-width: $custom-file-width;
+    max-width: 100%;
+    margin: 0;
+    filter: alpha(opacity = 0);
+    opacity: 0;
+
+    &:focus ~ .custom-file-control {
+      -webkit-box-shadow: 2px 2px 3px 2px #000;
+      -moz-box-shadow: 2px 2px 3px 2px #000;
+      box-shadow: 2px 2px 3px 2px #000;
+    }
+  }
+
+  .custom-file-control {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    height: $custom-file-height;
+    padding: $custom-file-padding-x $custom-file-padding-y;
+    line-height: $custom-file-line-height;
+    color: $custom-file-color;
+    user-select: none;
+    background-color: $custom-file-bg;
+    border: $custom-file-border-width solid $custom-file-border-color;
+    border-radius: 4px;
+
+    @each $lang, $text in map-get($custom-file-text, placeholder) {
+      &:lang(#{$lang})::after {
+        content: $text;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: -$custom-file-border-width;
+      right: -$custom-file-border-width;
+      bottom: -$custom-file-border-width;
+      z-index: 6;
+      display: block;
+      height: $custom-file-height;
+      padding: $custom-file-padding-x $custom-file-padding-y;
+      line-height: $custom-file-line-height;
+      color: $custom-file-button-color;
+      background-color: $custom-file-button-bg;
+      border: $custom-file-border-width solid $custom-file-border-color;
+      border-radius: 4px;
+    }
+
+    @each $lang, $text in map-get($custom-file-text, button-label) {
+      &:lang(#{$lang})::before {
+        content: $text;
+      }
+    }
+  }
+}
