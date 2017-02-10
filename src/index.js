@@ -64,7 +64,7 @@ $().ready(function () {
       // topic: "Please select at least 2 topics"
     },
     errorPlacement: function (error, element) {
-      var placement = $(element).data('error');
+      let placement = $(element).data('error');
       if (placement) {
         $(placement).append(error);
         console.log("appended");
@@ -77,19 +77,19 @@ $().ready(function () {
 
   // propose username by combining first- and lastname
   $("#username").focus(function () {
-    var firstname = $("#firstname").val();
-    var lastname = $("#lastname").val();
+    let firstname = $("#firstname").val();
+    let lastname = $("#lastname").val();
     if (firstname && lastname && !this.value) {
       this.value = firstname + "." + lastname;
     }
   });
 
   //code to hide topic selection, disable for demo
-  var newsletter = $("#newsletter");
+  const newsletter = $("#newsletter");
   // newsletter topics are optional, hide at first
-  var inital = newsletter.is(":checked");
-  var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
-  var topicInputs = topics.find("input").attr("disabled", !inital);
+  let inital = newsletter.is(":checked");
+  let topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+  let topicInputs = topics.find("input").attr("disabled", !inital);
   // show when newsletter is checked
   newsletter.click(function () {
     topics[this.checked ? "removeClass" : "addClass"]("gray");
