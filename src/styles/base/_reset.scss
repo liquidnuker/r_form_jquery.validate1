@@ -1,80 +1,67 @@
-// Andy.SCSS: Open-Source Collection of Useful SASS Mixins Library.
-// URL: http://gillesbertaux.com/andy$
-// Repository: https://github.com/gillesbertaux/andy
-// By: Gilles Bertaux | http://gillesbertaux.com | @gillesbertaux
-// The purpose of Andy is to gather useful mixins and avoid endless research
-// or heavy framework use. Feel free to fork it on Github and add your own mixins:
-
-// Mixin helper to output vendor-prefixed CSS
-// @author HugoGiraudel
-// @param {String} $property - Unprefixed CSS property
-// @param {*} $value - Raw CSS value
-// @param {List} $prefixes [()] - List of prefixes to output
-@mixin prefix($property, $value, $prefixes: ()) {
-  @each $prefix in $prefixes {
-    -#{$prefix}-#{$property}: $value;
-  }
-
-  #{$property}: $value;
-}
-
-// Box-sizing helper
-// Usage
-//   .foo {
-//     @include box-sizing(border-box);
-//   }
-@mixin box-sizing($type) {
-    @include prefix(box-sizing, $type, 'moz');
-}
-
-
-// reset 
-// ==================================================/
-
-%mpZero {
-  margin: 0;
-  padding: 0;
-}
-
 *, 
 *:before,
 *:after {
   @include box-sizing(border-box);
 }
 
-body, p, blockquote {
-  @extend %mpZero;
-}
-
-a img, iframe { 
-  border: none; 
-}
-  
-h1, h2, h3, h4, h5, h6 {
-  @extend %mpZero;
-  // font-size: 100%;
-}
-  
-ul, ol, dl, li, dt, dd {
-  @extend %mpZero;
-}
-  
-form, fieldset {
-  @extend %mpZero;
-}
-  
-legend {
-  @extend %mpZero;
-}
-
 input, textarea, select {
-  @extend %mpZero;
+  @extend %mp--0;
   font-size: 100%;
   font-family: inherit;
 }
   
-select { 
-  padding: 0; 
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  @extend %mp--0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 

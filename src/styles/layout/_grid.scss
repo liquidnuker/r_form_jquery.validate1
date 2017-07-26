@@ -1,3 +1,4 @@
+
 // show col-* grid borders
 // ==================================================/
 @mixin col-grid-border($color) {
@@ -7,8 +8,6 @@
   border: 1px solid $color;
   }
 }
-
-@include col-grid-border(green);
 
 // .container, .container-fluid
 // ==================================================/

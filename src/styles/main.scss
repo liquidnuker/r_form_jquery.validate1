@@ -2,20 +2,27 @@
 
 // 
 // ==================================================/
+@import "vendor/andy";
+@import "utils/helpers";
 @import "base/reset";
-@import "vendor/normalize"; // v4.2.0
+@import "vendor/normalize"; 
+@import "base/fonts";
+@import "components/buttons";
 
-@import "vendor/mq"; // v3.2.9
-@import "utils/clearfix";
+@import "vendor/mq"; 
 @import "layout/grid";
 
-@import "components/bs4_custom-form-elements";
-@import "components/custom-form-elements";
-
-// 
-// ==================================================/
-@import "pages/contact";
+@import "./pages/contact";
 
 // show the active breakpoint (_mq.scss)
 // ==================================================/
 // @include mq-show-breakpoints;
+
+// show col-* grid borders (_grid.scss)
+// ==================================================/
+@include col-grid-border(#000);
+
+// temp
+body {
+  @extend %system_normal--300;
+}

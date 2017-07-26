@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="dist/index.bundle.css">
+    <link rel="stylesheet" href="index.bundle.css">
   </head>
   <body>
     <div class="row">
@@ -11,34 +11,14 @@
       <div class="col-sm-8">
         <form class="form1" id="form1" method="get" action="">
           <!--begin custom select-->
-          <label for="select1">custom-select:</label>
-          <select class="custom-select" id="select1" name="select1">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option value="third option">Option 3</option>
-          </select>
-          <label class="bs4_custom-control bs4_custom-radio">
-            <input id="radioStacked1" name="radio-stacked" type="radio" class="bs4_custom-control-input">
-            <span class="bs4_custom-control-indicator"></span>
-            <span class="bs4_custom-control-description">Toggle this custom radio</span>
-          </label>
-          <label class="bs4_custom-control bs4_custom-radio">
-            <input id="radioStacked2" name="radio-stacked" type="radio" class="bs4_custom-control-input">
-            <span class="bs4_custom-control-indicator"></span>
-            <span class="bs4_custom-control-description">Or toggle this other custom radio</span>
-          </label>
+          select<br>
           <!--end custom select-->
+          <!-- begin custom radio -->
+          <input type="radio" name="">radio<br>
+          <!-- end custom radio -->
           <!--begin custom checkbox-->
-          <label class="bs4_custom-control bs4_custom-checkbox">
-            <input type="checkbox" class="bs4_custom-control-input">
-            <span class="bs4_custom-control-indicator"></span>
-            <span class="bs4_custom-control-description">Check this custom checkbox</span>
-          </label>
-          <label class="bs4_custom-control bs4_custom-checkbox">
-            <input type="checkbox" class="bs4_custom-control-input">
-            <span class="bs4_custom-control-indicator"></span>
-            <span class="bs4_custom-control-description">Check this custom checkbox2</span>
-          </label>
+          <input type="checkbox" class="bs4_custom-control-input">
+          checkbox
           <!--end custom checkbox-->
           <!--begin input type="text"-->
           <label for="username">Username</label>
@@ -63,42 +43,46 @@
           <!--end email-->
           <!--begin agree-->
           <span class="agree--error"></span>
-          <label class="bs4_custom-control bs4_custom-checkbox">
-            <label for="agree" class="bs4_custom-control-description">Please agree to our policy</label>
+          <span class="form1_agree">
             <input type="checkbox" class="bs4_custom-control-input checkbox" id="agree" name="agree" data-error=".agree--error">
-            <span class="bs4_custom-control-indicator"></span>
-          </label>
+            <label for="agree" class="label_agree">Please agree to our policy</label>
+          </span>
+          
+          
           <!--end agree-->
           <!--begin newsletter-->
-          <!-- <label for="newsletter">I'd like to receive the newsletter</label>
-          <input type="checkbox" class="checkbox" id="newsletter" name="newsletter"> -->
-          <label class="bs4_custom-control bs4_custom-checkbox">
-            <label for="newsletter" class="bs4_custom-control-description">I'd like to receive the newsletter</label>
+          <span class="form1_newsletter">
             <input type="checkbox" class="bs4_custom-control-input checkbox" id="newsletter" name="newsletter">
-            <span class="bs4_custom-control-indicator"></span>
-          </label>
+            <label for="newsletter" class="label_newsletter">I'd like to receive the newsletter</label>
+          </span>
+          <!-- end newsletter -->
+          
+          
           <fieldset class="newsletter_topics" id="newsletter_topics">
-            <legend>select at least two: - note: would be hidden when newsletter isn't selected, but is visible here for the demo</legend>
+            <legend>select at least two</legend>
             <!--marketflash-->
-            <label class="bs4_custom-control bs4_custom-checkbox">
-              <label for="topic_marketflash" class="bs4_custom-control-description">Marketflash</label>
-              <input type="checkbox" class="bs4_custom-control-input checkbox" id="topic_marketflash" value="marketflash" name="topic" data-error=".topic--error">
-              <span class="bs4_custom-control-indicator"></span>
-            </label>
+            <span class="form1_subtopic">
+              <input type="checkbox" class="" id="topic_marketflash" value="marketflash" name="topic" data-error=".topic--error">
+              <label for="topic_marketflash" class="label_subtopic">Marketflash</label>
+            </span>
+            
+            
             <!--end marketflash-->
             <!--latest fuzz-->
-            <label class="bs4_custom-control bs4_custom-checkbox">
-              <label for="topic_fuzz" class="bs4_custom-control-description">Latest Fuzz</label>
-              <input type="checkbox" class="bs4_custom-control-input checkbox" id="topic_fuzz" value="fuzz" name="topic" data-error=".topic--error">
-              <span class="bs4_custom-control-indicator"></span>
-            </label>
+            <span class="form1_subtopic">
+              <input type="checkbox" class="" id="topic_fuzz" value="fuzz" name="topic" data-error=".topic--error">
+              <label for="topic_fuzz" class="label_subtopic">Latest Fuzz</label>
+            </span>
+            
+            
             <!--end latest fuzz-->
             <!--mailing list digester-->
-            <label class="bs4_custom-control bs4_custom-checkbox">
-              <label for="topic_digester" class="bs4_custom-control-description">Mailing list digester</label>
-              <input type="checkbox" class="bs4_custom-control-input checkbox" id="topic_digester" value="digester" name="topic" data-error=".topic--error">
-              <span class="bs4_custom-control-indicator"></span>
-            </label>
+            <span class="form1_subtopic">
+              <input type="checkbox" class="" id="topic_digester" value="digester" name="topic" data-error=".topic--error">
+              <label for="topic_digester" class="label_subtopic">Mailing list digester</label>
+            </span>
+            
+            
             <!--end mailing list digester-->
             <span class="topic--error"></span>
           </fieldset>
@@ -113,7 +97,7 @@
           <input type="file" id="file" class="">
         </label>
         <br>
-        <input class="submit" type="submit" value="Submit">
+        <input class="btn1-01" type="submit" value="Submit">
       </p>
     </form>
   </div>

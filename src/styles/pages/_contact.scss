@@ -1,8 +1,3 @@
-/* pages/_contact.scss
-   =================================================*/
-@include bs4_custom-select;
-@include bs4_custom_checkbox_radios;
-
 // validator-specific styles
 // ==================================================/
 .form1 {
@@ -19,6 +14,7 @@
     display: block;
     text-align: left;
   }
+
 }
 
 .newsletter_topics {
@@ -47,12 +43,26 @@
 .form1 input[type=password],
 .form1 input[type=email],
 .form1 textarea {
-  @include input_text--custom;
   display: block;
   width: 100%;
 
   &:focus {
-    @include input_text_focus--custom;
+    
+  }
+}
+
+.form1 {
+  .label_agree,
+  .label_newsletter,
+  .label_subtopic {
+    display: inline-block;
+  }
+
+  .form1_agree,
+  .form1_newsletter,
+  .form1_subtopic {
+    display: block;
+    text-align: left;
   }
 }
 
