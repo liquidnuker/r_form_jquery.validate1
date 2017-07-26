@@ -1,28 +1,29 @@
 // validator-specific styles
 // ==================================================/
 .form1 {
-    text-align: center;
-    position: relative;
+    @extend %text--left;
+    @extend %pos--relative;
     label {
-      display: block;
-      text-align: left;
+      @extend %display--block;
+      @extend %text--left;
     }
 
     label.error {
-    position: relative;
+    @extend %pos--relative;
+    @extend %display--block;
+    @extend %text--left;
     width: auto;
-    display: block;
-    text-align: left;
+    
   }
 
 }
 
 .newsletter_topics {
   label {
-    display: block;
+    @extend %display--block;
   }
   label.error {
-    display: none;
+    @extend %display--none;
   }
 }
 
@@ -43,9 +44,11 @@
 .form1 input[type=password],
 .form1 input[type=email],
 .form1 textarea {
-  display: block;
+  @extend %display--block;
+  @extend %padd--4;
+  border: 1px solid #000;  
   width: 100%;
-
+  
   &:focus {
     
   }
@@ -55,14 +58,18 @@
   .label_agree,
   .label_newsletter,
   .label_subtopic {
-    display: inline-block;
+    @extend %display--inline-block;
   }
 
   .form1_agree,
   .form1_newsletter,
   .form1_subtopic {
-    display: block;
-    text-align: left;
+    @extend %display--block;
+    @extend %text--left;
+  }
+
+  .custom-select1_01 {
+    
   }
 }
 
