@@ -1,0 +1,62 @@
+body {
+  // background-color: #666;
+}
+.col-sm-2 {
+  height: 60px;
+}
+
+// checkToggle1-02
+// ==================================================/
+.checkToggle1-02 {
+  @extend %display--block;
+  // @include center-both; // for preview only; use the extender above for actual usage
+  // background-color: #ccc;
+
+  input[type=checkbox]{
+    height: 0;
+    width: 0;
+    display: none;
+  }
+
+  .checkToggle1-02_vlabel {
+    @extend %display--inline-block;
+    margin-bottom: 6px;
+  }
+
+  .checkToggle1-02_vlabel:last-of-type {
+    // @extend %display--inline-block;
+    // margin-bottom: 6px;
+  }
+
+  .checkToggle1-02_bg {
+    @extend %pos--relative;
+    @extend %display--inline-block;    
+    background-color: #eee;
+    border: 1px solid #000;
+    width: 18px;
+    height: 18px;
+  }
+
+  input:checked + .checkToggle1-02_bg {
+    position: relative;
+    background-color: pink;
+  }
+
+  input:checked + .checkToggle1-02_bg:after {
+    @include center-both;
+    position: absolute;
+    content: url('../../img/icons/check1.svg'); 
+    width: 20px; 
+    height: 20px;
+
+  }
+
+  // input:checked ~ .checkToggle1-01_vlabel:after {
+  //    content: 'on';
+  // }
+
+  // disabled
+  input:disabled ~ .checkToggle1-02_bg {
+    background-color: #ccc;
+  }
+}
