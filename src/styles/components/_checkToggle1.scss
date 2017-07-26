@@ -15,7 +15,13 @@ body {
   input[type=checkbox]{
     height: 0;
     width: 0;
-    display: none;
+
+    // jqvalidate workaround
+    position: absolute;
+    left: -9999px;
+
+    // visibility: hidden;
+    // display: none;
   }
 
   .checkToggle1-02_vlabel {
